@@ -1,0 +1,27 @@
+<Manager클래스에서 ...>
+
+	String sql= "create table tbl" + Integer.toString(tblNum);
+
+	  		 sql = sql + "(boardId	number	primary key)";
+
+						
+
+		HashMap map = new HashMap();
+
+		map.put("sql", sql);
+
+		
+
+	 SqlSession session = sqlMapper.openSession();
+
+	 session.update("CreateTable",map);
+
+
+
+<mapper 쪽에서 ....>
+
+<select id="CreateTable" parameterType="HashMap">	
+
+	 ${sql}
+
+</select>
